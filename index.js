@@ -3,10 +3,12 @@ const app = express();
 
 app.use(express.json());
 
+const EMAIL = "disha0327.be23@chitkara.edu.in";
+
 app.get("/health", (req, res) => {
   res.json({
     is_success: true,
-    official_email: "disha0327.be23@chitkara.edu.in"
+    official_email: EMAIL
   });
 });
 
@@ -21,20 +23,22 @@ app.post("/bfhl", (req, res) => {
       arr.push(arr[i - 1] + arr[i - 2]);
     }
 
-    res.json({
+    return res.json({
       is_success: true,
-      official_email: "disha0327.be23@chitkara.edu.in",
+      official_email: EMAIL,
       data: arr.slice(0, n)
     });
-  } else {
-    res.json({
-      is_success: true,
-      official_email: "disha0327.be23@chitkara.edu.in",
-      data: "No input"
-    });
   }
+
+  res.json({
+    is_success: true,
+    official_email: EMAIL,
+    data: "Working"
+  });
 });
-const 
-app.listen(3000, () => {
+
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
   console.log("Server running");
 });
