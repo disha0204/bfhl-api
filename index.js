@@ -13,27 +13,10 @@ app.get("/health", (req, res) => {
 });
 
 app.post("/bfhl", (req, res) => {
-  const body = req.body;
-
-  if (body.fibonacci) {
-    let n = body.fibonacci;
-    let arr = [0, 1];
-
-    for (let i = 2; i < n; i++) {
-      arr.push(arr[i - 1] + arr[i - 2]);
-    }
-
-    return res.json({
-      is_success: true,
-      official_email: EMAIL,
-      data: arr.slice(0, n)
-    });
-  }
-
   res.json({
     is_success: true,
     official_email: EMAIL,
-    data: "Working"
+    data: "working"
   });
 });
 
